@@ -97,6 +97,7 @@ class MainViewController : UIViewController {
     self.title = "Text Classification"
   }
     
+  // Check for model updates when UI view appears
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     let _ = field.becomeFirstResponder()
