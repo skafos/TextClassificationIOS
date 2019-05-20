@@ -213,7 +213,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TextClassification/Pods-TextClassification-frameworks.sh",
-				"${PODS_ROOT}/Skafos/frameworks/Skafos.framework",
+				"${BUILT_PRODUCTS_DIR}/Skafos/Skafos.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";

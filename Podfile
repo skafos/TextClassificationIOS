@@ -6,6 +6,6 @@ target 'TextClassification' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Skafos', '3.0.0'
+  pod 'Skafos', :path => '../skafos_ios_internal'
 end
 
