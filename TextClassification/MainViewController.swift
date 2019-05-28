@@ -3,7 +3,7 @@
 //  TextClassification
 //
 //  Created by Skafos.ai on 1/7/19.
-//  Copyright © 2019 Metis Machine, LLC. All rights reserved.
+//  Copyright © 2019 Skafos, LLC. All rights reserved.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ import SnapKit
 
 class MainViewController : UIViewController {
   private let classifier:TextClassifier! = TextClassifier()
-  private let assetName:String = "TextClassifier"
+  private let modelName:String = "TextClassifier"
   
   private lazy var label:UILabel = {
     let label           = UILabel()
@@ -95,52 +95,24 @@ class MainViewController : UIViewController {
     super.viewDidLoad()
     self.view.backgroundColor = .white
     self.title = "Text Classification"
-
-    // Skafos load cached asset
-    // If you pass in a tag, Skafos will make a network request to fetch the asset with that tag
-    Skafos.load(asset: assetName, tag: "latest") { (error, asset) in
-      // Log the asset in the console
-      console.info(asset)
-      guard error == nil else {
-        console.error("Skafos load asset error: \(String(describing: error))")
-        return
-      }
-      guard let model = asset.model else {
-        console.info("No model available in the asset")
-        return
-      }
-      // Assign model to the classifier class
-      self.classifier.model = model
-    }
-    
-    /***
-      Listen for changes in an asset with the given name. A notification is triggered anytime an
-      asset is downloaded from the servers. This can happen in response to a push notification
-      or when you manually call Skafos.load with a tag like above.
-     ***/
-    NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.reloadModel(_:)), name: Skafos.Notifications.assetUpdateNotification(assetName), object: nil)
   }
-  
+    
+  // Check for model updates when UI view appears
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
     let _ = field.becomeFirstResponder()
-  }
-  
-  @objc func reloadModel(_ notification:Notification) {
-    Skafos.load(asset: assetName) { (error, asset) in
+    // Skafos load
+    Skafos.load(asset: self.modelName) { (error, asset) in
       // Log the asset in the console
       console.info(asset)
       guard error == nil else {
-        console.error("Skafos load asset error: \(String(describing: error))")
+        console.error("Skafos load error: \(String(describing: error))")
         return
       }
-      guard let model = asset.model else {
-        console.info("No model available in the asset")
-        return
+      if let model = asset.model {
+        // Assign the updated model
+        self.classifier.model = model
       }
-      // Assign model to the classifier class
-      self.classifier.model = model
     }
   }
   

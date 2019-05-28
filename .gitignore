@@ -22,7 +22,7 @@ DTS*
 # Xcode per-user config
 *.mode1
 *.perspective
-xcuserdata
+*xcuserdata*
 # Build products
 build/
 *.o
@@ -35,8 +35,8 @@ build/
 *.dat
 *.dep
 # Cocoapods
-Pods
-Podfile.lock
+Pods*
+Podfile.lock*
 .gitmodules
 # AppCode specific files
 .idea/
@@ -49,3 +49,4 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/metadata
+
