@@ -136,7 +136,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = io.skafos;
+				ORGANIZATIONNAME = "Skafos, LLC";
 				TargetAttributes = {
 					D7FF33D721E3E8AB00916CBD = {
 						CreatedOnToolsVersion = 10.1;
@@ -213,7 +213,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TextClassification/Pods-TextClassification-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Skafos/Skafos.framework",
+				"${PODS_ROOT}/Skafos/frameworks/Skafos.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";

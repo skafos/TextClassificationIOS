@@ -3,7 +3,7 @@
 //  TextClassification
 //
 //  Created by Skafos.ai on 1/7/19.
-//  Copyright © 2019 Skafos. All rights reserved.
+//  Copyright © 2019 Skafos, LLC. All rights reserved.
 //
 
 import Foundation
